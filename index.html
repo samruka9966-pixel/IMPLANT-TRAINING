@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager: A Web-Based To-Do List Application</title>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Application Wrapper -->
+  <main class="app-container">
+    
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="badge">College Inplant Training Project</div>
+      <h1 class="app-title">Task Manager</h1>
+      <p class="app-subtitle">A Web-Based To-Do List Application</p>
+    </header>
+
+    <!-- Project Problem & Solution Banner (Collapsible Info) -->
+    <section class="project-info-card">
+      <div class="info-header" id="info-toggle-btn" role="button" tabindex="0" title="Click to view Project Problem & Solution">
+        <span class="info-icon">💡</span>
+        <span class="info-title"><strong>About This Project:</strong> Problem & Solution</span>
+        <span class="info-arrow" id="info-arrow">▼</span>
+      </div>
+      <div class="info-content" id="info-content">
+        <p><strong>Problem:</strong> People often forget daily tasks because they depend on memory or paper notes. A simple, persistent tool is needed to manage daily activities.</p>
+        <p><strong>Solution:</strong> A responsive, browser-based Task Manager that stores tasks in browser Local Storage without requiring any server or database.</p>
+      </div>
+    </section>
+
+    <!-- Task Input Form Module -->
+    <section class="input-card">
+      <form id="task-form" autocomplete="off">
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="task-input" 
+            name="taskText" 
+            placeholder="What task do you need to accomplish today?" 
+            aria-label="Enter a new task"
+            maxlength="200"
+          >
+          <button type="submit" id="add-task-btn" class="btn btn-primary">
+            <span class="btn-icon">＋</span>
+            <span class="btn-text">Add Task</span>
+          </button>
+        </div>
+        
+        <!-- Validation Error Message Area -->
+        <div id="error-message" class="error-banner" role="alert" style="display: none;">
+          <span class="error-icon">⚠️</span>
+          <span id="error-text" class="error-text">Please enter a valid task name. Tasks cannot be empty or only spaces.</span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Task Statistics and Filters Bar -->
+    <section class="control-bar">
+      <!-- Task Counters -->
+      <div class="counters">
+        <span class="counter-item">Total: <strong id="total-count">0</strong></span>
+        <span class="counter-divider">|</span>
+        <span class="counter-item text-warning">Pending: <strong id="pending-count">0</strong></span>
+        <span class="counter-divider">|</span>
+        <span class="counter-item text-success">Completed: <strong id="completed-count">0</strong></span>
+      </div>
+
+      <!-- Action & Filter Row -->
+      <div class="filters-and-actions">
+        <!-- Filter Buttons -->
+        <div class="filter-tabs" role="tablist">
+          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="filter-btn" data-filter="pending" role="tab" aria-selected="false">Pending</button>
+          <button type="button" class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+
+        <!-- Clear Completed Button -->
+        <button type="button" id="clear-completed-btn" class="btn btn-secondary-subtle" title="Remove all completed tasks">
+          Clear Completed
+        </button>
+      </div>
+    </section>
+
+    <!-- Task List Display Module -->
+    <section class="list-section">
+      <!-- Unordered list for tasks -->
+      <ul id="task-list" class="task-list" aria-live="polite">
+        <!-- Task items dynamically injected by script.js -->
+      </ul>
+
+      <!-- Empty State Message -->
+      <div id="empty-state" class="empty-state">
+        <div class="empty-state-icon">📝</div>
+        <h3 class="empty-state-title">No tasks found</h3>
+        <p class="empty-state-desc" id="empty-state-text">You have no tasks yet. Add a new task above to get started!</p>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+      <p>Built with <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript (ES6)</strong>, <strong>jQuery</strong>, and <strong>Local Storage</strong>.</p>
+      <p class="footer-note">Client-Side Only &bull; Zero Server Dependencies &bull; College Inplant Training</p>
+    </footer>
+
+  </main>
+
+  <!-- jQuery from Official Official CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Application Logic Script -->
+  <script src="script.js"></script>
+</body>
+</html>
